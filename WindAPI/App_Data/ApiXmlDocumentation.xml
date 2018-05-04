@@ -1,0 +1,1096 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>WindAPI</name>
+    </assembly>
+    <members>
+        <member name="T:WindAPI.Classes.RequestObjects.AddAdministratorRequest">
+            <summary>
+            Defines the request format that the AddAdmin action accepts.
+            </summary>
+        </member>
+        <member name="P:WindAPI.Classes.RequestObjects.AddAdministratorRequest.users">
+            <summary>
+            The list of users to add as administrators
+            </summary>
+        </member>
+        <member name="P:WindAPI.Classes.RequestObjects.AddAdministratorRequest.groups">
+            The list of groups to add as administrators
+        </member>
+        <member name="T:WindAPI.Classes.RequestObjects.ComputerAccountRequest">
+            <summary>
+            Defines the request format that the CreateComputerAccount action accepts.
+            </summary>
+        </member>
+        <member name="P:WindAPI.Classes.RequestObjects.ComputerAccountRequest.serverName">
+            <summary>
+            The name of the server to create a computer account for.
+            </summary>
+        </member>
+        <member name="P:WindAPI.Classes.RequestObjects.ComputerAccountRequest.environment">
+            <summary>
+            The environment of the server - production/test
+            </summary>
+        </member>
+        <member name="P:WindAPI.Classes.RequestObjects.ComputerAccountRequest.projectName">
+            <summary>
+            The name of the project to which the server belongs.
+            </summary>
+        </member>
+        <member name="P:WindAPI.Classes.RequestObjects.ComputerAccountRequest.siteName">
+            <summary>
+            The name of the site in which the server is deployed.
+            </summary>
+        </member>
+        <member name="T:WindAPI.Classes.RequestObjects.CommandRequest">
+            <summary>
+            Defines the request format that the RunCommand action accepts.
+            </summary>
+        </member>
+        <member name="P:WindAPI.Classes.RequestObjects.CommandRequest.commandToExecute">
+            <summary>
+            The command to execute.
+            </summary>
+        </member>
+        <member name="T:WindAPI.Classes.ResultObjects.AddAdministratorResult">
+            <summary>
+            Defines the format that the AddAdmin action returns in the
+            response body.
+            </summary>
+        </member>
+        <member name="P:WindAPI.Classes.ResultObjects.AddAdministratorResult.serverName">
+            <summary>
+            The name of the server administrators were added to.
+            </summary>
+        </member>
+        <member name="P:WindAPI.Classes.ResultObjects.AddAdministratorResult.addedUsers">
+            <summary>
+            The list of users that were added as administrators.
+            </summary>
+        </member>
+        <member name="P:WindAPI.Classes.ResultObjects.AddAdministratorResult.addedGroups">
+            <summary>
+            The list of groups that were added as administrators.
+            </summary>
+        </member>
+        <member name="P:WindAPI.Classes.ResultObjects.AddAdministratorResult.alreadyAdminUsers">
+            <summary>
+            List of users that were already admins and weren't added again.
+            </summary>
+        </member>
+        <member name="P:WindAPI.Classes.ResultObjects.AddAdministratorResult.alreadyAdminGroups">
+            List of groups that were already admins and weren't added again.
+        </member>
+        <member name="P:WindAPI.Classes.ResultObjects.AddAdministratorResult.failedUsers">
+            <summary>
+            A list of users that weren't added as administrators.
+            </summary>
+        </member>
+        <member name="P:WindAPI.Classes.ResultObjects.AddAdministratorResult.failedGroups">
+            <summary>
+            A list of groups that weren't added as administrators.
+            </summary>
+        </member>
+        <member name="P:WindAPI.Classes.ResultObjects.AddAdministratorResult.message">
+            <summary>
+            A result message.
+            </summary>
+        </member>
+        <member name="M:WindAPI.Classes.ResultObjects.AddAdministratorResult.#ctor(System.String)">
+            <summary>
+            Creates a new instance of AddAdministratorResult with empty initialized lists.
+            </summary>
+            <param name="serverName">The name of the server to add administrators to.</param>
+        </member>
+        <member name="T:WindAPI.Classes.ResultObjects.CheckpointAuthResponse">
+            <summary>
+            Defines the format that the CheckpointAPI auth request returns in the
+            response body.
+            </summary>
+        </member>
+        <member name="P:WindAPI.Classes.ResultObjects.CheckpointAuthResponse.token">
+            <summary>
+            The token provided for authentication by the user
+            </summary>
+        </member>
+        <member name="P:WindAPI.Classes.ResultObjects.CheckpointAuthResponse.isAdmin">
+            <summary>
+            The result if the user is an admin or not
+            </summary>
+        </member>
+        <member name="P:WindAPI.Classes.ResultObjects.CheckpointAuthResponse.name">
+            <summary>
+            The username that the token belongs to
+            </summary>
+        </member>
+        <member name="T:WindAPI.Classes.ResultObjects.ComputerAccountResult">
+            <summary>
+            Defines the result object returned by the Create/DeleteComputerAccount Action.
+            </summary>
+        </member>
+        <member name="P:WindAPI.Classes.ResultObjects.ComputerAccountResult.action">
+            <summary>
+            The type of action to perform - create/delete.
+            </summary>
+        </member>
+        <member name="P:WindAPI.Classes.ResultObjects.ComputerAccountResult.message">
+            <summary>
+            Message containing a success message or error message.
+            </summary>
+        </member>
+        <member name="P:WindAPI.Classes.ResultObjects.ComputerAccountResult.serverName">
+            <summary>
+            The server name who's computer account was modified.
+            </summary>
+        </member>
+        <member name="P:WindAPI.Classes.ResultObjects.ComputerAccountResult.objectADPath">
+            <summary>
+            The path of the computer account in AD.
+            </summary>
+        </member>
+        <member name="T:WindAPI.Classes.ResultObjects.GroupInfoResult">
+            <summary>
+            Defines the result object returned by the GetGroupInfo action
+            </summary>
+        </member>
+        <member name="P:WindAPI.Classes.ResultObjects.GroupInfoResult.code">
+            <summary>
+            Internal status code for the Active Directory query.
+            </summary>
+        </member>
+        <member name="P:WindAPI.Classes.ResultObjects.GroupInfoResult.sAMAccountName">
+            <summary>
+            The groupname account name in AD
+            </summary>
+        </member>
+        <member name="P:WindAPI.Classes.ResultObjects.GroupInfoResult.displayName">
+            <summary>
+            The display name of the group
+            </summary>
+        </member>
+        <member name="P:WindAPI.Classes.ResultObjects.GroupInfoResult.description">
+            <summary>
+            The description of the group
+            </summary>
+        </member>
+        <member name="P:WindAPI.Classes.ResultObjects.GroupInfoResult.mail">
+            <summary>
+            The mail of the group
+            </summary>
+        </member>
+        <member name="P:WindAPI.Classes.ResultObjects.UserInfoResult.code">
+            <summary>
+            Internal status code for the Active Directory query.
+            </summary>
+        </member>
+        <member name="P:WindAPI.Classes.ResultObjects.UserInfoResult.sAMAccountName">
+            <summary>
+            The username account name in AD
+            </summary>
+        </member>
+        <member name="P:WindAPI.Classes.ResultObjects.UserInfoResult.displayName">
+            <summary>
+            The display name of the user
+            </summary>
+        </member>
+        <member name="P:WindAPI.Classes.ResultObjects.UserInfoResult.firstName">
+            <summary>
+            The first name of the user
+            </summary>
+        </member>
+        <member name="P:WindAPI.Classes.ResultObjects.UserInfoResult.lastName">
+            <summary>
+            The last name of the user
+            </summary>
+        </member>
+        <member name="P:WindAPI.Classes.ResultObjects.UserInfoResult.title">
+            <summary>
+            The tite of the user (admin, manager...)
+            </summary>
+        </member>
+        <member name="P:WindAPI.Classes.ResultObjects.UserInfoResult.mail">
+            <summary>
+            The mail of the user
+            </summary>
+        </member>
+        <member name="P:WindAPI.Classes.ResultObjects.UserInfoResult.telephoneNumber">
+            <summary>
+            The phone number of the user
+            </summary>
+        </member>
+        <member name="P:WindAPI.Classes.ResultObjects.UserInfoResult.voip">
+            <summary>
+            The voip of the user
+            </summary>
+        </member>
+        <member name="P:WindAPI.Classes.ResultObjects.UserInfoResult.organizationHierarchy">
+            <summary>
+            The full hierarchy of the user in the organization
+            </summary>
+        </member>
+        <member name="T:WindAPI.Classes.ResultObjects.ADObjectCheckResult">
+            <summary>
+            Defines the format that the CheckADObject action returns in the
+            response body.
+            </summary>
+        </member>
+        <member name="P:WindAPI.Classes.ResultObjects.ADObjectCheckResult.code">
+            <summary>
+            Internal status code for the Active Directory query.
+            </summary>
+        </member>
+        <member name="P:WindAPI.Classes.ResultObjects.ADObjectCheckResult.adObject">
+            <summary>
+            The name of the AD object we checked.
+            </summary>
+        </member>
+        <member name="P:WindAPI.Classes.ResultObjects.ADObjectCheckResult.queryResult">
+            <summary>
+            The result specifying if the object is a user or group.
+            </summary>
+        </member>
+        <member name="T:WindAPI.Classes.ResultObjects.ExecutionResult">
+            <summary>
+            Defines the format that the RunCommand action returns in the
+            response body.
+            </summary>
+        </member>
+        <member name="P:WindAPI.Classes.ResultObjects.ExecutionResult.commandExitCode">
+            <summary>
+            The exit code of the command performed.
+            </summary>
+        </member>
+        <member name="P:WindAPI.Classes.ResultObjects.ExecutionResult.resultMessage">
+            <summary>
+            The result message of the command performed.
+            </summary>
+        </member>
+        <member name="P:WindAPI.Classes.ResultObjects.ExecutionResult.resultError">
+            <summary>
+            The result error of the command performed.
+            </summary>
+        </member>
+        <member name="T:WindAPI.Classes.ResultObjects.MembershipResult">
+            <summary>
+            Defines the format that the IsUserMember action returns in the
+            response body.
+            </summary>
+        </member>
+        <member name="P:WindAPI.Classes.ResultObjects.MembershipResult.isMember">
+            <summary>
+            Is the AD user a member of the input AD group
+            </summary>
+        </member>
+        <member name="T:WindAPI.Classes.ResultObjects.UserMembershipResult">
+            <summary>
+            Defines the format that the UserGroupMembership action returns in the
+            response body.
+            </summary>
+        </member>
+        <member name="P:WindAPI.Classes.ResultObjects.UserMembershipResult.code">
+            <summary>
+            Internal status code for the Active Directory query.
+            </summary>
+        </member>
+        <member name="P:WindAPI.Classes.ResultObjects.UserMembershipResult.message">
+            <summary>
+            Message explaining if the query succeeded or displays the error that occured.
+            </summary>
+        </member>
+        <member name="P:WindAPI.Classes.ResultObjects.UserMembershipResult.user">
+            <summary>
+            The username to query group membership for.
+            </summary>
+        </member>
+        <member name="P:WindAPI.Classes.ResultObjects.UserMembershipResult.groups">
+            <summary>
+            A list of groups the username is a member of.
+            </summary>
+        </member>
+        <member name="T:WindAPI.Classes.BrowserJsonFormatter">
+            <summary>
+            This class inherits the default JsonMediaTypeFormatter and
+            makes sure the returned response header when making requests is application/json.
+            It also makes sure the JSON returned when browsing the API with a web browser is pretty printed
+            </summary>
+        </member>
+        <member name="M:WindAPI.Controllers.AD.ComputersController.Get">
+            <summary>
+            A basic GET request to the API to check if the API is alive.
+            </summary>
+            <returns>A welcome string.</returns>
+        </member>
+        <member name="M:WindAPI.Controllers.AD.ComputersController.Post(System.String,WindAPI.Classes.RequestObjects.ComputerAccountRequest)">
+            <summary>
+            Gets the name of a server, environment, project and site and creates a computer account for it in AD
+            </summary>
+            <param name="accessToken">A checkpoint Access Token to check user permissions.</param>
+            <param name="caRequest">A ComputerAccountRequest object containing the
+            name of server, the environment, the project name and the site.</param>
+            <returns>An HttpResponseMessage containing a ComputerAccountResult object with
+            the name of the action performed, a success/failure message, the name of
+            the server who's computer account was created and the path of the computer account
+            in AD.</returns>
+        </member>
+        <member name="M:WindAPI.Controllers.AD.ComputersController.Delete(System.String,System.String)">
+            <summary>
+            Gets the name of a server and deletes the corresponding
+            computer account in AD.
+            </summary>
+            <param name="accessToken">A checkpoint Access Token to check user permissions.</param>
+            <param name="computer">A string containing the name of a server.</param>
+            <returns>An HttpResponseMessage containing a ComputerAccountResult object with
+            the name of the action performed, a success/failure message, the name of
+            the server who's computer account was deleted and the path of the computer account
+            in AD.</returns>
+        </member>
+        <member name="M:WindAPI.Controllers.AD.ComputersController.AddAdmin(System.String,System.String,WindAPI.Classes.RequestObjects.AddAdministratorRequest)">
+            <summary>
+            Adds administrator to a remote Windows Server.
+            </summary>
+            <param name="accessToken">A checkpoint Access Token to check user permissions.</param>
+            <param name="computer">The name of the server to add administators to.</param>
+            <param name="adminRequest">A AddAdministratorRequest object containing the users and groups
+            to be added.</param>
+            <returns>An HttpResponseMessage containing a AddAdministratorResult object which includes
+            the users and groups that were added as admins, the users and groups that were already admins,
+            the users and groups that weren't added and a result message.</returns>
+        </member>
+        <member name="M:WindAPI.Controllers.AD.ComputersController.RunCommand(System.String,System.String,WindAPI.Classes.RequestObjects.CommandRequest)">
+            <summary>
+            runs a command on a remote Windows server.
+            </summary>
+            <param name="computer">The name of the server to execut command on</param>
+            <param name="accessToken">A checkpoint Access Token to check user permissions.</param>
+            <param name="command">A CommandRequest object</param>
+            <returns>An HttpResponseMessage containing an ExecutionResult object which includes:
+            commandExitCode - The exit code of the command performed.
+            resultMessage - The output of the command run on the remote server.
+            resultError - The error output of the execution on the remote sever.</returns>
+        </member>
+        <member name="T:WindAPI.Controllers.AD.GroupsController">
+            <summary>
+            The controller providing API Endpoints to query Active Directory Groups.
+            </summary>
+        </member>
+        <member name="M:WindAPI.Controllers.AD.GroupsController.Get(System.String[])">
+            <summary>
+            A basic GET request to the API to check if the API is alive.
+            
+            This endpoint also gets a group name or multiple group names
+            and returns relevant group object info.
+            </summary>
+            <param name="groups">A group name or multiple group names
+            as they are listed in Active Directory.</param>
+            <returns>A welcome string. or The input groupname(s) and additional relevant AD fields.</returns>
+        </member>
+        <member name="M:WindAPI.Controllers.AD.GroupsController.Get(System.String)">
+            <summary>
+            Gets a group sAMAccountName and returns relevant group object info.
+            </summary>
+            <param name="group">A group sAMAccountName in Active Directory.</param>
+            <returns>The input group sAMAccountName and additional relevant AD fields.</returns>
+        </member>
+        <member name="M:WindAPI.Controllers.AD.ObjectsController.Get">
+            <summary>
+            A basic GET request to the API to check if the API is alive.
+            </summary>
+            <returns>A welcome string.</returns>
+        </member>
+        <member name="M:WindAPI.Controllers.AD.ObjectsController.CheckADObject(System.String)">
+            <summary>
+            Gets the name of a user, group or computer and returns it's object type in AD.
+            </summary>
+            <param name="adObject">The name of the object to check in AD.</param>
+            <returns>An HttpResponseMessage containing an ADObjectCheckResult object with
+            the name of the object to check, a
+            code to determine the result type and a list explaining the type of input object
+            in AD.</returns>
+        </member>
+        <member name="T:WindAPI.Controllers.AD.UsersController">
+            <summary>
+            The controller providing API Endpoints to query Active Directory Users.
+            </summary>
+        </member>
+        <member name="M:WindAPI.Controllers.AD.UsersController.Get(System.String[])">
+            <summary>
+            A basic GET request to the API to check if the API is alive.
+            </summary>
+            <param name="users">A list of usernames to get info for, supplied as queryparams</param>
+            <returns>A welcome string.</returns>
+        </member>
+        <member name="M:WindAPI.Controllers.AD.UsersController.Get(System.String)">
+            <summary>
+            Gets a username and returns relevant user object info.
+            </summary>
+            <param name="user">A sAMAccountName to get info for</param>
+            <returns>The input username and additional relevant AD fields.</returns>
+        </member>
+        <member name="M:WindAPI.Controllers.AD.UsersController.IsMemberOf(System.String,System.String)">
+            <summary>
+            Gets a username and a group name and returnes whether the user is a member of the group.
+            </summary>
+            <param name="user">A Username to check group membership.</param>
+            <param name="group">The group to check if the user is a member of.</param>
+            <returns>An HttpResponseMessage containing a boolean specifying if the user is a
+            member of the group or not.</returns>
+        </member>
+        <member name="M:WindAPI.Controllers.AD.UsersController.UserGroupMembership(System.String)">
+            <summary>
+            Gets a username and returns all of the groups the user is a member of recursively.
+            </summary>
+            <param name="user">The username of the user in Active Directory.</param>
+            <returns>An HttpResponseMessage containing a UserMembershipResult object with
+            the input username and a list of groups in which the user is a member.</returns>
+        </member>
+        <member name="F:WindAPI.Handlers.ActiveDirectory.Domain">
+            <summary>
+            A string containing the AD domain name
+            </summary>
+        </member>
+        <member name="M:WindAPI.Handlers.ActiveDirectory.IsUserMemberOf(System.String,System.String)">
+            <summary>
+            This method receives a username and a group and checks whether
+            the user is part of the AD group
+            </summary>
+            <param name="username">The user to check membership for</param>
+            <param name="group">The AD group to check if the user is a member
+            of</param>
+            <returns>True if the user is a member of the input group
+            group. False otherwise</returns>
+        </member>
+        <member name="M:WindAPI.Handlers.ActiveDirectory.CheckADObjectType(System.String)">
+            <summary>
+            This method receives the name of an AD object and checks whether
+            the object is a user, group or something else and returns the result.
+            </summary>
+            <param name="adObject">The name of the AD Object to check it's type.</param>
+            <returns>an ADObjectCheckResult object containing the adObject, a list result if
+            the object is a user, group or computer.
+            The method returns an integer code to differentiate results:
+            0 - The AD Object is a user
+            1 - The AD Object is a group
+            2 - The AD Object is a computer
+            3 - The AD Object is a user and a computer
+            4 - The AD Object is a group and a computer
+            5 - There is no such AD Object</returns>
+        </member>
+        <member name="M:WindAPI.Handlers.ActiveDirectory.GetAllGroupsByUser(WindAPI.Classes.ResultObjects.UserMembershipResult)">
+            <summary>
+            This method receives a UserMembershipResult object containing a username to check
+            and get all of the AD groups the user is a member of
+            </summary>
+            <param name="membershipResult">A UserMembershipResult object containing a username
+            to check.</param>
+            <returns>A UserMembershipResult object containing the username to check, a result message,
+            a status code for the AD query and the list of groups the user is a member of.</returns>
+        </member>
+        <member name="M:WindAPI.Handlers.ActiveDirectory.GetUserInfoByUsername(WindAPI.Classes.ResultObjects.UserInfoResult)">
+            <summary>
+            This method receives a UserInfoResult object containing a username to check
+            and get fields from the user's AD object
+            </summary>
+            <param name="infoResult">A UserInfoResult object containing the username</param>
+            <returns>A UserInfoResult containing the username and additional AD fields</returns>
+        </member>
+        <member name="M:WindAPI.Handlers.ActiveDirectory.GetGroupInfoByGroupname(WindAPI.Classes.ResultObjects.GroupInfoResult)">
+            <summary>
+            This method receives a GroupInfoResult object containing a groupname to check
+            and get fields from the group's AD object
+            </summary>
+            <param name="infoResult">A GroupInfoResult object containing the groupname</param>
+            <returns>A GroupInfoResult containing the groupname and additional AD fields</returns>
+        </member>
+        <member name="M:WindAPI.Handlers.ActiveDirectory.CreateComputerAccount(WindAPI.Classes.RequestObjects.ComputerAccountRequest)">
+            <summary>
+            This method receives a ComputerAccountRequest object containing the server name,
+            The site name and the project name and creates the computer account, a new OU
+            will be created if necessary.
+            </summary>
+            <param name="request">A ComputerAccountRequest object containing the server name,
+            the site name and the project name.</param>
+            <returns>A ComputerAccountResult containing the action performed, a success/failure message,
+            the name of the server which the computer account belongs to and the path of the object in AD.</returns>
+        </member>
+        <member name="M:WindAPI.Handlers.ActiveDirectory.DeleteComputerAccount(System.String)">
+            <summary>
+            This method receives a string containing the server name, and deletes it's computer account.
+            </summary>
+            <param name="serverName">a string containing the server name.</param>
+            <returns>A ComputerAccountResult containing the action performed, a success/failure message,
+            the name of the server which the computer account belongs to and the path of the object in AD.</returns>
+        </member>
+        <member name="M:WindAPI.Handlers.ActiveDirectory.CreateComputerAccountVoid(WindAPI.Classes.RequestObjects.ComputerAccountRequest)">
+            <summary>
+            This method receives a ComputerAccountRequest object containing the server name,
+            The site name and the project name and creates the computer account, a new OU
+            will be created if necessary.
+            </summary>
+            <param name="request">A ComputerAccountRequest object containing the server name,
+            the site name and the project name.</param>
+        </member>
+        <member name="T:WindAPI.Handlers.CheckpointAuth">
+            <summary>
+            This class handles checks for permissions made against the Checkpoint API.
+            </summary>
+        </member>
+        <member name="M:WindAPI.Handlers.CheckpointAuth.CheckCheckpointToken(System.String)">
+            <summary>
+            This method receives an accessToken and checks it against the Checkpoint API.
+            </summary>
+            <param name="accessToken">A Checkpoint Access Token.</param>
+            <returns>true if the access token is valid, false otherwise.</returns>
+        </member>
+        <member name="T:WindAPI.Handlers.ServerHandler">
+            <summary>
+            Class to handle server Actions.
+            </summary>
+        </member>
+        <member name="M:WindAPI.Handlers.ServerHandler.AddAdministratorsByRequestObject(System.String,WindAPI.Classes.RequestObjects.AddAdministratorRequest)">
+            <summary>
+            This method receieves a server name and AdministratorRequest object and adds the
+            users and groups from the request as admins to the specified server.
+            </summary>
+            <param name="serverName">The name of the server to add administators to.</param>
+            <param name="request">A AddAdministratorRequest object that contains the users and groups that need to be
+            added as administrators.</param>
+            <returns>A AddAdministratorResult object containing the lists of users and groups that were added/were already admins/
+            weren't added and a result message.</returns>
+        </member>
+        <member name="M:WindAPI.Handlers.ServerHandler.AddAdministrator(System.String,System.String)">
+            <summary>
+            This method receives a server name and a user/group name and adds
+            the input name as an admin user to the server admins.
+            </summary>
+            <param name="serverName">The name of the server to add administrators to.</param>
+            <param name="newAdmin">The user/group to add as administrator.</param>
+            <returns>A status code to differntiatie results:
+            0 - User/Group added successfully.
+            1 - User/Group is already a member of the administrators group.
+            2 - The AD Object is a computer
+            3 - A general error occured.</returns>
+        </member>
+        <member name="M:WindAPI.Handlers.ServerHandler.RemoveAdministratorVoid(System.String,System.String)">
+            <summary>
+            This method receives a server name and a user/group name and removes
+            the input name from the server admins.
+            </summary>
+            <param name="serverName">The name of the server to remove the administrator from.</param>
+            <param name="oldAdmin">The user/group to remove.</param>
+        </member>
+        <member name="T:WindAPI.Handlers.StringHandler">
+            <summary>
+            Class to handle string modifications.
+            </summary>
+        </member>
+        <member name="M:WindAPI.Handlers.StringHandler.ToTitleCase(System.String)">
+            <summary>
+            Convert a string to TitleCase.
+            </summary>
+            <param name="toConvert">The string to convert.</param>
+            <returns>The input string converted to TitleCase.</returns>
+        </member>
+        <member name="M:WindAPI.Areas.HelpPage.ApiDescriptionExtensions.GetFriendlyId(System.Web.Http.Description.ApiDescription)">
+            <summary>
+            Generates an URI-friendly ID for the <see cref="T:System.Web.Http.Description.ApiDescription"/>. E.g. "Get-Values-id_name" instead of "GetValues/{id}?name={name}"
+            </summary>
+            <param name="description">The <see cref="T:System.Web.Http.Description.ApiDescription"/>.</param>
+            <returns>The ID as a string.</returns>
+        </member>
+        <member name="T:WindAPI.Areas.HelpPage.HelpPageConfig">
+            <summary>
+            Use this class to customize the Help Page.
+            For example you can set a custom <see cref="T:System.Web.Http.Description.IDocumentationProvider"/> to supply the documentation
+            or you can provide the samples for the requests/responses.
+            </summary>
+        </member>
+        <member name="T:WindAPI.Areas.HelpPage.Controllers.HelpController">
+            <summary>
+            The controller that will handle requests for the help page.
+            </summary>
+        </member>
+        <member name="M:WindAPI.Areas.HelpPage.HelpPageConfigurationExtensions.SetDocumentationProvider(System.Web.Http.HttpConfiguration,System.Web.Http.Description.IDocumentationProvider)">
+            <summary>
+            Sets the documentation provider for help page.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="documentationProvider">The documentation provider.</param>
+        </member>
+        <member name="M:WindAPI.Areas.HelpPage.HelpPageConfigurationExtensions.SetSampleObjects(System.Web.Http.HttpConfiguration,System.Collections.Generic.IDictionary{System.Type,System.Object})">
+            <summary>
+            Sets the objects that will be used by the formatters to produce sample requests/responses.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="sampleObjects">The sample objects.</param>
+        </member>
+        <member name="M:WindAPI.Areas.HelpPage.HelpPageConfigurationExtensions.SetSampleRequest(System.Web.Http.HttpConfiguration,System.Object,System.Net.Http.Headers.MediaTypeHeaderValue,System.String,System.String)">
+            <summary>
+            Sets the sample request directly for the specified media type and action.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="sample">The sample request.</param>
+            <param name="mediaType">The media type.</param>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+        </member>
+        <member name="M:WindAPI.Areas.HelpPage.HelpPageConfigurationExtensions.SetSampleRequest(System.Web.Http.HttpConfiguration,System.Object,System.Net.Http.Headers.MediaTypeHeaderValue,System.String,System.String,System.String[])">
+            <summary>
+            Sets the sample request directly for the specified media type and action with parameters.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="sample">The sample request.</param>
+            <param name="mediaType">The media type.</param>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+            <param name="parameterNames">The parameter names.</param>
+        </member>
+        <member name="M:WindAPI.Areas.HelpPage.HelpPageConfigurationExtensions.SetSampleResponse(System.Web.Http.HttpConfiguration,System.Object,System.Net.Http.Headers.MediaTypeHeaderValue,System.String,System.String)">
+            <summary>
+            Sets the sample request directly for the specified media type of the action.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="sample">The sample response.</param>
+            <param name="mediaType">The media type.</param>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+        </member>
+        <member name="M:WindAPI.Areas.HelpPage.HelpPageConfigurationExtensions.SetSampleResponse(System.Web.Http.HttpConfiguration,System.Object,System.Net.Http.Headers.MediaTypeHeaderValue,System.String,System.String,System.String[])">
+            <summary>
+            Sets the sample response directly for the specified media type of the action with specific parameters.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="sample">The sample response.</param>
+            <param name="mediaType">The media type.</param>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+            <param name="parameterNames">The parameter names.</param>
+        </member>
+        <member name="M:WindAPI.Areas.HelpPage.HelpPageConfigurationExtensions.SetSampleForMediaType(System.Web.Http.HttpConfiguration,System.Object,System.Net.Http.Headers.MediaTypeHeaderValue)">
+            <summary>
+            Sets the sample directly for all actions with the specified media type.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="sample">The sample.</param>
+            <param name="mediaType">The media type.</param>
+        </member>
+        <member name="M:WindAPI.Areas.HelpPage.HelpPageConfigurationExtensions.SetSampleForType(System.Web.Http.HttpConfiguration,System.Object,System.Net.Http.Headers.MediaTypeHeaderValue,System.Type)">
+            <summary>
+            Sets the sample directly for all actions with the specified type and media type.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="sample">The sample.</param>
+            <param name="mediaType">The media type.</param>
+            <param name="type">The parameter type or return type of an action.</param>
+        </member>
+        <member name="M:WindAPI.Areas.HelpPage.HelpPageConfigurationExtensions.SetActualRequestType(System.Web.Http.HttpConfiguration,System.Type,System.String,System.String)">
+            <summary>
+            Specifies the actual type of <see cref="T:System.Net.Http.ObjectContent`1"/> passed to the <see cref="T:System.Net.Http.HttpRequestMessage"/> in an action.
+            The help page will use this information to produce more accurate request samples.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="type">The type.</param>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+        </member>
+        <member name="M:WindAPI.Areas.HelpPage.HelpPageConfigurationExtensions.SetActualRequestType(System.Web.Http.HttpConfiguration,System.Type,System.String,System.String,System.String[])">
+            <summary>
+            Specifies the actual type of <see cref="T:System.Net.Http.ObjectContent`1"/> passed to the <see cref="T:System.Net.Http.HttpRequestMessage"/> in an action.
+            The help page will use this information to produce more accurate request samples.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="type">The type.</param>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+            <param name="parameterNames">The parameter names.</param>
+        </member>
+        <member name="M:WindAPI.Areas.HelpPage.HelpPageConfigurationExtensions.SetActualResponseType(System.Web.Http.HttpConfiguration,System.Type,System.String,System.String)">
+            <summary>
+            Specifies the actual type of <see cref="T:System.Net.Http.ObjectContent`1"/> returned as part of the <see cref="T:System.Net.Http.HttpRequestMessage"/> in an action.
+            The help page will use this information to produce more accurate response samples.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="type">The type.</param>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+        </member>
+        <member name="M:WindAPI.Areas.HelpPage.HelpPageConfigurationExtensions.SetActualResponseType(System.Web.Http.HttpConfiguration,System.Type,System.String,System.String,System.String[])">
+            <summary>
+            Specifies the actual type of <see cref="T:System.Net.Http.ObjectContent`1"/> returned as part of the <see cref="T:System.Net.Http.HttpRequestMessage"/> in an action.
+            The help page will use this information to produce more accurate response samples.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="type">The type.</param>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+            <param name="parameterNames">The parameter names.</param>
+        </member>
+        <member name="M:WindAPI.Areas.HelpPage.HelpPageConfigurationExtensions.GetHelpPageSampleGenerator(System.Web.Http.HttpConfiguration)">
+            <summary>
+            Gets the help page sample generator.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <returns>The help page sample generator.</returns>
+        </member>
+        <member name="M:WindAPI.Areas.HelpPage.HelpPageConfigurationExtensions.SetHelpPageSampleGenerator(System.Web.Http.HttpConfiguration,WindAPI.Areas.HelpPage.HelpPageSampleGenerator)">
+            <summary>
+            Sets the help page sample generator.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="sampleGenerator">The help page sample generator.</param>
+        </member>
+        <member name="M:WindAPI.Areas.HelpPage.HelpPageConfigurationExtensions.GetModelDescriptionGenerator(System.Web.Http.HttpConfiguration)">
+            <summary>
+            Gets the model description generator.
+            </summary>
+            <param name="config">The configuration.</param>
+            <returns>The <see cref="T:WindAPI.Areas.HelpPage.ModelDescriptions.ModelDescriptionGenerator"/></returns>
+        </member>
+        <member name="M:WindAPI.Areas.HelpPage.HelpPageConfigurationExtensions.GetHelpPageApiModel(System.Web.Http.HttpConfiguration,System.String)">
+            <summary>
+            Gets the model that represents an API displayed on the help page. The model is initialized on the first call and cached for subsequent calls.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="apiDescriptionId">The <see cref="T:System.Web.Http.Description.ApiDescription"/> ID.</param>
+            <returns>
+            An <see cref="T:WindAPI.Areas.HelpPage.Models.HelpPageApiModel"/>
+            </returns>
+        </member>
+        <member name="T:WindAPI.Areas.HelpPage.ModelDescriptions.ModelDescription">
+            <summary>
+            Describes a type model.
+            </summary>
+        </member>
+        <member name="T:WindAPI.Areas.HelpPage.ModelDescriptions.ModelDescriptionGenerator">
+            <summary>
+            Generates model descriptions for given types.
+            </summary>
+        </member>
+        <member name="T:WindAPI.Areas.HelpPage.ModelDescriptions.ModelNameAttribute">
+            <summary>
+            Use this attribute to change the name of the <see cref="T:WindAPI.Areas.HelpPage.ModelDescriptions.ModelDescription"/> generated for a type.
+            </summary>
+        </member>
+        <member name="T:WindAPI.Areas.HelpPage.Models.HelpPageApiModel">
+            <summary>
+            The model that represents an API displayed on the help page.
+            </summary>
+        </member>
+        <member name="M:WindAPI.Areas.HelpPage.Models.HelpPageApiModel.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:WindAPI.Areas.HelpPage.Models.HelpPageApiModel"/> class.
+            </summary>
+        </member>
+        <member name="P:WindAPI.Areas.HelpPage.Models.HelpPageApiModel.ApiDescription">
+            <summary>
+            Gets or sets the <see cref="P:WindAPI.Areas.HelpPage.Models.HelpPageApiModel.ApiDescription"/> that describes the API.
+            </summary>
+        </member>
+        <member name="P:WindAPI.Areas.HelpPage.Models.HelpPageApiModel.UriParameters">
+            <summary>
+            Gets or sets the <see cref="T:WindAPI.Areas.HelpPage.ModelDescriptions.ParameterDescription"/> collection that describes the URI parameters for the API.
+            </summary>
+        </member>
+        <member name="P:WindAPI.Areas.HelpPage.Models.HelpPageApiModel.RequestDocumentation">
+            <summary>
+            Gets or sets the documentation for the request.
+            </summary>
+        </member>
+        <member name="P:WindAPI.Areas.HelpPage.Models.HelpPageApiModel.RequestModelDescription">
+            <summary>
+            Gets or sets the <see cref="T:WindAPI.Areas.HelpPage.ModelDescriptions.ModelDescription"/> that describes the request body.
+            </summary>
+        </member>
+        <member name="P:WindAPI.Areas.HelpPage.Models.HelpPageApiModel.RequestBodyParameters">
+            <summary>
+            Gets the request body parameter descriptions.
+            </summary>
+        </member>
+        <member name="P:WindAPI.Areas.HelpPage.Models.HelpPageApiModel.ResourceDescription">
+            <summary>
+            Gets or sets the <see cref="T:WindAPI.Areas.HelpPage.ModelDescriptions.ModelDescription"/> that describes the resource.
+            </summary>
+        </member>
+        <member name="P:WindAPI.Areas.HelpPage.Models.HelpPageApiModel.ResourceProperties">
+            <summary>
+            Gets the resource property descriptions.
+            </summary>
+        </member>
+        <member name="P:WindAPI.Areas.HelpPage.Models.HelpPageApiModel.SampleRequests">
+            <summary>
+            Gets the sample requests associated with the API.
+            </summary>
+        </member>
+        <member name="P:WindAPI.Areas.HelpPage.Models.HelpPageApiModel.SampleResponses">
+            <summary>
+            Gets the sample responses associated with the API.
+            </summary>
+        </member>
+        <member name="P:WindAPI.Areas.HelpPage.Models.HelpPageApiModel.ErrorMessages">
+            <summary>
+            Gets the error messages associated with this model.
+            </summary>
+        </member>
+        <member name="T:WindAPI.Areas.HelpPage.HelpPageSampleGenerator">
+            <summary>
+            This class will generate the samples for the help page.
+            </summary>
+        </member>
+        <member name="M:WindAPI.Areas.HelpPage.HelpPageSampleGenerator.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:WindAPI.Areas.HelpPage.HelpPageSampleGenerator"/> class.
+            </summary>
+        </member>
+        <member name="P:WindAPI.Areas.HelpPage.HelpPageSampleGenerator.ActualHttpMessageTypes">
+            <summary>
+            Gets CLR types that are used as the content of <see cref="T:System.Net.Http.HttpRequestMessage"/> or <see cref="T:System.Net.Http.HttpResponseMessage"/>.
+            </summary>
+        </member>
+        <member name="P:WindAPI.Areas.HelpPage.HelpPageSampleGenerator.ActionSamples">
+            <summary>
+            Gets the objects that are used directly as samples for certain actions.
+            </summary>
+        </member>
+        <member name="P:WindAPI.Areas.HelpPage.HelpPageSampleGenerator.SampleObjects">
+            <summary>
+            Gets the objects that are serialized as samples by the supported formatters.
+            </summary>
+        </member>
+        <member name="P:WindAPI.Areas.HelpPage.HelpPageSampleGenerator.SampleObjectFactories">
+            <summary>
+            Gets factories for the objects that the supported formatters will serialize as samples. Processed in order,
+            stopping when the factory successfully returns a non-<see langref="null"/> object.
+            </summary>
+            <remarks>
+            Collection includes just <see cref="M:WindAPI.Areas.HelpPage.ObjectGenerator.GenerateObject(System.Type)"/> initially. Use
+            <code>SampleObjectFactories.Insert(0, func)</code> to provide an override and
+            <code>SampleObjectFactories.Add(func)</code> to provide a fallback.</remarks>
+        </member>
+        <member name="M:WindAPI.Areas.HelpPage.HelpPageSampleGenerator.GetSampleRequests(System.Web.Http.Description.ApiDescription)">
+            <summary>
+            Gets the request body samples for a given <see cref="T:System.Web.Http.Description.ApiDescription"/>.
+            </summary>
+            <param name="api">The <see cref="T:System.Web.Http.Description.ApiDescription"/>.</param>
+            <returns>The samples keyed by media type.</returns>
+        </member>
+        <member name="M:WindAPI.Areas.HelpPage.HelpPageSampleGenerator.GetSampleResponses(System.Web.Http.Description.ApiDescription)">
+            <summary>
+            Gets the response body samples for a given <see cref="T:System.Web.Http.Description.ApiDescription"/>.
+            </summary>
+            <param name="api">The <see cref="T:System.Web.Http.Description.ApiDescription"/>.</param>
+            <returns>The samples keyed by media type.</returns>
+        </member>
+        <member name="M:WindAPI.Areas.HelpPage.HelpPageSampleGenerator.GetSample(System.Web.Http.Description.ApiDescription,WindAPI.Areas.HelpPage.SampleDirection)">
+            <summary>
+            Gets the request or response body samples.
+            </summary>
+            <param name="api">The <see cref="T:System.Web.Http.Description.ApiDescription"/>.</param>
+            <param name="sampleDirection">The value indicating whether the sample is for a request or for a response.</param>
+            <returns>The samples keyed by media type.</returns>
+        </member>
+        <member name="M:WindAPI.Areas.HelpPage.HelpPageSampleGenerator.GetActionSample(System.String,System.String,System.Collections.Generic.IEnumerable{System.String},System.Type,System.Net.Http.Formatting.MediaTypeFormatter,System.Net.Http.Headers.MediaTypeHeaderValue,WindAPI.Areas.HelpPage.SampleDirection)">
+            <summary>
+            Search for samples that are provided directly through <see cref="P:WindAPI.Areas.HelpPage.HelpPageSampleGenerator.ActionSamples"/>.
+            </summary>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+            <param name="parameterNames">The parameter names.</param>
+            <param name="type">The CLR type.</param>
+            <param name="formatter">The formatter.</param>
+            <param name="mediaType">The media type.</param>
+            <param name="sampleDirection">The value indicating whether the sample is for a request or for a response.</param>
+            <returns>The sample that matches the parameters.</returns>
+        </member>
+        <member name="M:WindAPI.Areas.HelpPage.HelpPageSampleGenerator.GetSampleObject(System.Type)">
+            <summary>
+            Gets the sample object that will be serialized by the formatters. 
+            First, it will look at the <see cref="P:WindAPI.Areas.HelpPage.HelpPageSampleGenerator.SampleObjects"/>. If no sample object is found, it will try to create
+            one using <see cref="M:WindAPI.Areas.HelpPage.HelpPageSampleGenerator.DefaultSampleObjectFactory(WindAPI.Areas.HelpPage.HelpPageSampleGenerator,System.Type)"/> (which wraps an <see cref="T:WindAPI.Areas.HelpPage.ObjectGenerator"/>) and other
+            factories in <see cref="P:WindAPI.Areas.HelpPage.HelpPageSampleGenerator.SampleObjectFactories"/>.
+            </summary>
+            <param name="type">The type.</param>
+            <returns>The sample object.</returns>
+        </member>
+        <member name="M:WindAPI.Areas.HelpPage.HelpPageSampleGenerator.ResolveHttpRequestMessageType(System.Web.Http.Description.ApiDescription)">
+            <summary>
+            Resolves the actual type of <see cref="T:System.Net.Http.ObjectContent`1"/> passed to the <see cref="T:System.Net.Http.HttpRequestMessage"/> in an action.
+            </summary>
+            <param name="api">The <see cref="T:System.Web.Http.Description.ApiDescription"/>.</param>
+            <returns>The type.</returns>
+        </member>
+        <member name="M:WindAPI.Areas.HelpPage.HelpPageSampleGenerator.ResolveType(System.Web.Http.Description.ApiDescription,System.String,System.String,System.Collections.Generic.IEnumerable{System.String},WindAPI.Areas.HelpPage.SampleDirection,System.Collections.ObjectModel.Collection{System.Net.Http.Formatting.MediaTypeFormatter}@)">
+            <summary>
+            Resolves the type of the action parameter or return value when <see cref="T:System.Net.Http.HttpRequestMessage"/> or <see cref="T:System.Net.Http.HttpResponseMessage"/> is used.
+            </summary>
+            <param name="api">The <see cref="T:System.Web.Http.Description.ApiDescription"/>.</param>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+            <param name="parameterNames">The parameter names.</param>
+            <param name="sampleDirection">The value indicating whether the sample is for a request or a response.</param>
+            <param name="formatters">The formatters.</param>
+        </member>
+        <member name="M:WindAPI.Areas.HelpPage.HelpPageSampleGenerator.WriteSampleObjectUsingFormatter(System.Net.Http.Formatting.MediaTypeFormatter,System.Object,System.Type,System.Net.Http.Headers.MediaTypeHeaderValue)">
+            <summary>
+            Writes the sample object using formatter.
+            </summary>
+            <param name="formatter">The formatter.</param>
+            <param name="value">The value.</param>
+            <param name="type">The type.</param>
+            <param name="mediaType">Type of the media.</param>
+            <returns></returns>
+        </member>
+        <member name="T:WindAPI.Areas.HelpPage.HelpPageSampleKey">
+            <summary>
+            This is used to identify the place where the sample should be applied.
+            </summary>
+        </member>
+        <member name="M:WindAPI.Areas.HelpPage.HelpPageSampleKey.#ctor(System.Net.Http.Headers.MediaTypeHeaderValue)">
+            <summary>
+            Creates a new <see cref="T:WindAPI.Areas.HelpPage.HelpPageSampleKey"/> based on media type.
+            </summary>
+            <param name="mediaType">The media type.</param>
+        </member>
+        <member name="M:WindAPI.Areas.HelpPage.HelpPageSampleKey.#ctor(System.Net.Http.Headers.MediaTypeHeaderValue,System.Type)">
+            <summary>
+            Creates a new <see cref="T:WindAPI.Areas.HelpPage.HelpPageSampleKey"/> based on media type and CLR type.
+            </summary>
+            <param name="mediaType">The media type.</param>
+            <param name="type">The CLR type.</param>
+        </member>
+        <member name="M:WindAPI.Areas.HelpPage.HelpPageSampleKey.#ctor(WindAPI.Areas.HelpPage.SampleDirection,System.String,System.String,System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            Creates a new <see cref="T:WindAPI.Areas.HelpPage.HelpPageSampleKey"/> based on <see cref="P:WindAPI.Areas.HelpPage.HelpPageSampleKey.SampleDirection"/>, controller name, action name and parameter names.
+            </summary>
+            <param name="sampleDirection">The <see cref="P:WindAPI.Areas.HelpPage.HelpPageSampleKey.SampleDirection"/>.</param>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+            <param name="parameterNames">The parameter names.</param>
+        </member>
+        <member name="M:WindAPI.Areas.HelpPage.HelpPageSampleKey.#ctor(System.Net.Http.Headers.MediaTypeHeaderValue,WindAPI.Areas.HelpPage.SampleDirection,System.String,System.String,System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            Creates a new <see cref="T:WindAPI.Areas.HelpPage.HelpPageSampleKey"/> based on media type, <see cref="P:WindAPI.Areas.HelpPage.HelpPageSampleKey.SampleDirection"/>, controller name, action name and parameter names.
+            </summary>
+            <param name="mediaType">The media type.</param>
+            <param name="sampleDirection">The <see cref="P:WindAPI.Areas.HelpPage.HelpPageSampleKey.SampleDirection"/>.</param>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+            <param name="parameterNames">The parameter names.</param>
+        </member>
+        <member name="P:WindAPI.Areas.HelpPage.HelpPageSampleKey.ControllerName">
+            <summary>
+            Gets the name of the controller.
+            </summary>
+            <value>
+            The name of the controller.
+            </value>
+        </member>
+        <member name="P:WindAPI.Areas.HelpPage.HelpPageSampleKey.ActionName">
+            <summary>
+            Gets the name of the action.
+            </summary>
+            <value>
+            The name of the action.
+            </value>
+        </member>
+        <member name="P:WindAPI.Areas.HelpPage.HelpPageSampleKey.MediaType">
+            <summary>
+            Gets the media type.
+            </summary>
+            <value>
+            The media type.
+            </value>
+        </member>
+        <member name="P:WindAPI.Areas.HelpPage.HelpPageSampleKey.ParameterNames">
+            <summary>
+            Gets the parameter names.
+            </summary>
+        </member>
+        <member name="P:WindAPI.Areas.HelpPage.HelpPageSampleKey.SampleDirection">
+            <summary>
+            Gets the <see cref="P:WindAPI.Areas.HelpPage.HelpPageSampleKey.SampleDirection"/>.
+            </summary>
+        </member>
+        <member name="T:WindAPI.Areas.HelpPage.ImageSample">
+            <summary>
+            This represents an image sample on the help page. There's a display template named ImageSample associated with this class.
+            </summary>
+        </member>
+        <member name="M:WindAPI.Areas.HelpPage.ImageSample.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:WindAPI.Areas.HelpPage.ImageSample"/> class.
+            </summary>
+            <param name="src">The URL of an image.</param>
+        </member>
+        <member name="T:WindAPI.Areas.HelpPage.InvalidSample">
+            <summary>
+            This represents an invalid sample on the help page. There's a display template named InvalidSample associated with this class.
+            </summary>
+        </member>
+        <member name="T:WindAPI.Areas.HelpPage.ObjectGenerator">
+            <summary>
+            This class will create an object of a given type and populate it with sample data.
+            </summary>
+        </member>
+        <member name="M:WindAPI.Areas.HelpPage.ObjectGenerator.GenerateObject(System.Type)">
+            <summary>
+            Generates an object for a given type. The type needs to be public, have a public default constructor and settable public properties/fields. Currently it supports the following types:
+            Simple types: <see cref="T:System.Int32"/>, <see cref="T:System.String"/>, <see cref="T:System.Enum"/>, <see cref="T:System.DateTime"/>, <see cref="T:System.Uri"/>, etc.
+            Complex types: POCO types.
+            Nullables: <see cref="T:System.Nullable`1"/>.
+            Arrays: arrays of simple types or complex types.
+            Key value pairs: <see cref="T:System.Collections.Generic.KeyValuePair`2"/>
+            Tuples: <see cref="T:System.Tuple`1"/>, <see cref="T:System.Tuple`2"/>, etc
+            Dictionaries: <see cref="T:System.Collections.Generic.IDictionary`2"/> or anything deriving from <see cref="T:System.Collections.Generic.IDictionary`2"/>.
+            Collections: <see cref="T:System.Collections.Generic.IList`1"/>, <see cref="T:System.Collections.Generic.IEnumerable`1"/>, <see cref="T:System.Collections.Generic.ICollection`1"/>, <see cref="T:System.Collections.IList"/>, <see cref="T:System.Collections.IEnumerable"/>, <see cref="T:System.Collections.ICollection"/> or anything deriving from <see cref="T:System.Collections.Generic.ICollection`1"/> or <see cref="T:System.Collections.IList"/>.
+            Queryables: <see cref="T:System.Linq.IQueryable"/>, <see cref="T:System.Linq.IQueryable`1"/>.
+            </summary>
+            <param name="type">The type.</param>
+            <returns>An object of the given type.</returns>
+        </member>
+        <member name="T:WindAPI.Areas.HelpPage.SampleDirection">
+            <summary>
+            Indicates whether the sample is used for request or response
+            </summary>
+        </member>
+        <member name="T:WindAPI.Areas.HelpPage.TextSample">
+            <summary>
+            This represents a preformatted text sample on the help page. There's a display template named TextSample associated with this class.
+            </summary>
+        </member>
+        <member name="T:WindAPI.Areas.HelpPage.XmlDocumentationProvider">
+            <summary>
+            A custom <see cref="T:System.Web.Http.Description.IDocumentationProvider"/> that reads the API documentation from an XML documentation file.
+            </summary>
+        </member>
+        <member name="M:WindAPI.Areas.HelpPage.XmlDocumentationProvider.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:WindAPI.Areas.HelpPage.XmlDocumentationProvider"/> class.
+            </summary>
+            <param name="documentPath">The physical path to XML document.</param>
+        </member>
+        <member name="T:WindAPI.Config.Constants">
+            <summary>
+            Class used for static configuration variables
+            </summary>
+        </member>
+        <member name="F:WindAPI.Config.Constants.domain">
+            <summary>
+            The default domain to query
+            </summary>
+        </member>
+        <member name="F:WindAPI.Config.Constants.adQueryUser">
+            <summary>
+            The username of the user used to query AD
+            </summary>
+        </member>
+        <member name="F:WindAPI.Config.Constants.adQueryPassword">
+            <summary>
+            The password of the user used to query AD
+            </summary>
+        </member>
+        <member name="F:WindAPI.Config.Constants.checkpointAPIURL">
+            <summary>
+            The Checkpoint API URL
+            </summary>
+        </member>
+    </members>
+</doc>
